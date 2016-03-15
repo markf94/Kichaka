@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<juiceboxgallery 
+
+	backgroundColor="rgba(255,255,255,1)"
+
+>
+  <image imageURL="images/IMG_7017.jpg"
+	thumbURL="thumbs/IMG_7017.jpg"
+	linkURL="images/IMG_7017.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/markfingerhuth/Desktop/Kichaka/Article Pictures/Raw Beauty 1 Alia/IMG_7017.JPG">
+    <title><![CDATA[IMG_7017]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/IMG_7004.jpg"
+	thumbURL="thumbs/IMG_7004.jpg"
+	linkURL="images/IMG_7004.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/markfingerhuth/Desktop/Kichaka/Article Pictures/Raw Beauty 1 Alia/IMG_7004.JPG">
+    <title><![CDATA[IMG_7004]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/IMG_7015.jpg"
+	thumbURL="thumbs/IMG_7015.jpg"
+	linkURL="images/IMG_7015.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/markfingerhuth/Desktop/Kichaka/Article Pictures/Raw Beauty 1 Alia/IMG_7015.JPG">
+    <title><![CDATA[IMG_7015]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+</juiceboxgallery>

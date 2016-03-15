@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<juiceboxgallery 
+
+	galleryTitle="Gallery2"
+
+>
+  <image imageURL="images/6.jpg"
+	thumbURL="thumbs/6.jpg"
+	linkURL="images/6.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/momo/Dropbox/Mark Magazine Sharing/WE/6.JPG">
+    <title><![CDATA[6]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/7.jpg"
+	thumbURL="thumbs/7.jpg"
+	linkURL="images/7.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/momo/Dropbox/Mark Magazine Sharing/WE/7.JPG">
+    <title><![CDATA[7]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/8.jpg"
+	thumbURL="thumbs/8.jpg"
+	linkURL="images/8.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/momo/Dropbox/Mark Magazine Sharing/WE/8.JPG">
+    <title><![CDATA[8]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/9.jpg"
+	thumbURL="thumbs/9.jpg"
+	linkURL="images/9.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/momo/Dropbox/Mark Magazine Sharing/WE/9.JPG">
+    <title><![CDATA[9]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/11.jpg"
+	thumbURL="thumbs/11.jpg"
+	linkURL="images/11.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/momo/Dropbox/Mark Magazine Sharing/WE/11.JPG">
+    <title><![CDATA[11]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+</juiceboxgallery>

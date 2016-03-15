@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<juiceboxgallery 
+
+	backgroundColor="rgba(255,255,255,1)"
+	useFullscreenExpand="false"
+	useThumbDots="false"
+
+>
+  <image imageURL="images/5.jpg"
+	thumbURL="thumbs/5.jpg"
+	linkURL="images/5.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/markfingerhuth/Dropbox/mark magazine sharing/catherine photo shoot/5.JPG">
+    <title><![CDATA[5]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/6.jpg"
+	thumbURL="thumbs/6.jpg"
+	linkURL="images/6.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/markfingerhuth/Dropbox/mark magazine sharing/catherine photo shoot/6.JPG">
+    <title><![CDATA[6]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/7.jpg"
+	thumbURL="thumbs/7.jpg"
+	linkURL="images/7.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/markfingerhuth/Dropbox/mark magazine sharing/catherine photo shoot/7.JPG">
+    <title><![CDATA[7]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/8.jpg"
+	thumbURL="thumbs/8.jpg"
+	linkURL="images/8.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/markfingerhuth/Dropbox/mark magazine sharing/catherine photo shoot/8.JPG">
+    <title><![CDATA[8]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+</juiceboxgallery>

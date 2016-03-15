@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<juiceboxgallery 
+
+	backgroundColor="rgba(255,255,255,1)"
+	textColor="rgba(255,255,255,0)"
+	indexPageName="index.html"
+
+>
+  <image imageURL="images/IMG_7002.jpg"
+	thumbURL="thumbs/IMG_7002.jpg"
+	linkURL="images/IMG_7002.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/markfingerhuth/Desktop/Kichaka/Article Pictures/Raw Beauty 1 Alia/IMG_7002.JPG">
+    <title><![CDATA[IMG_7002]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/IMG_6982.jpg"
+	thumbURL="thumbs/IMG_6982.jpg"
+	linkURL="images/IMG_6982.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/markfingerhuth/Desktop/Kichaka/Article Pictures/Raw Beauty 1 Alia/IMG_6982.JPG">
+    <title><![CDATA[IMG_6982]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/IMG_6985.jpg"
+	thumbURL="thumbs/IMG_6985.jpg"
+	linkURL="images/IMG_6985.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/markfingerhuth/Desktop/Kichaka/Article Pictures/Raw Beauty 1 Alia/IMG_6985.JPG">
+    <title><![CDATA[IMG_6985]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/IMG_6978.jpg"
+	thumbURL="thumbs/IMG_6978.jpg"
+	linkURL="images/IMG_6978.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/markfingerhuth/Desktop/Kichaka/Article Pictures/Raw Beauty 1 Alia/IMG_6978.JPG">
+    <title><![CDATA[IMG_6978]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/IMG_9659.jpg"
+	thumbURL="thumbs/IMG_9659.jpg"
+	linkURL="images/IMG_9659.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/markfingerhuth/Desktop/Kichaka/Article Pictures/Raw Beauty 1 Alia/IMG_9659.jpg">
+    <title><![CDATA[IMG_9659]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/IMG_6979.jpg"
+	thumbURL="thumbs/IMG_6979.jpg"
+	linkURL="images/IMG_6979.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/markfingerhuth/Desktop/Kichaka/Article Pictures/Raw Beauty 1 Alia/IMG_6979.JPG">
+    <title><![CDATA[IMG_6979]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/IMG_9664.jpg"
+	thumbURL="thumbs/IMG_9664.jpg"
+	linkURL="images/IMG_9664.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/markfingerhuth/Desktop/Kichaka/Article Pictures/Raw Beauty 1 Alia/IMG_9664.jpg">
+    <title><![CDATA[IMG_9664]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+</juiceboxgallery>

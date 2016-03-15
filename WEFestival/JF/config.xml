@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<juiceboxgallery 
+
+	galleryTitle="JF"
+
+>
+  <image imageURL="images/Header for article.jpg"
+	thumbURL="thumbs/Header for article.jpg"
+	linkURL="images/Header.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/momo/Dropbox/Mark Magazine Sharing/WE/Header for article.jpg">
+    <title><![CDATA[Header]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/Jf 2.jpg"
+	thumbURL="thumbs/Jf 2.jpg"
+	linkURL="images/Jf2.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/momo/Dropbox/Mark Magazine Sharing/WE/Jf 2.jpg">
+    <title><![CDATA[Jf2]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/Jf2.jpg"
+	thumbURL="thumbs/Jf2.jpg"
+	linkURL="images/Jf1.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/momo/Dropbox/Mark Magazine Sharing/WE/Jf2.jpg">
+    <title><![CDATA[Jf1]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+</juiceboxgallery>

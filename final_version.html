@@ -1,0 +1,379 @@
+<head>
+  <title>Boris' and Mark's code</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <!--
+
+Copyright (c) 2015,
+Boris Estrada Bonilla (orcid.org/0000-0002-0867-4697) <borishestrada@gmail.com>
+& Mark Fingerhuth (orcid.org/0000-0002-0867-4697) <markfingerhuth@protonmail.com>
+
+ Permission is hereby granted, free of charge, to any person
+ obtaining a copy of this software and associated documentation
+ files (the "Software"), to deal in the Software without
+ restriction, including without limitation the rights to use,
+ copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the
+ Software is furnished to do so, subject to the following
+ conditions:
+
+ The above copyright notice and this permission notice shall be
+ included in all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+
+  <!-- include source files here... -->
+  <script type="text/javascript" src="src/combined.js"></script>
+  <script type="text/javascript" src="src/math.min.js"></script>
+  <script src="//d3js.org/d3.v3.min.js"></script>
+
+  <!-- setup -->
+  <script type="text/javascript">
+//enables you to search for any kind of Compound
+//EXAMPLE:
+//BaseURL + ?uri=http://www.conceptwiki.org/concept/index/342a03eb-3311-49ac-8d6e-8bf9b605dab1 (CWlink for Paracetamol)
+var prmstr = window.location.search.substr(1);
+var prmarr = prmstr.split ("&");
+var params = {};
+params["uri"] = "http://www.conceptwiki.org/concept/index/7d5f9e37-28fc-44fe-9f93-54db96a56123";
+for ( var i = 0; i < prmarr.length; i++) {
+    var tmparr = prmarr[i].split("=");
+    params[tmparr[0]] = tmparr[1];
+}
+var showDetails = function(dataJSON){ //
+    data = JSON.parse(unescape(dataJSON));
+    document.getElementById("details").innerHTML = "<a href=\"" + data._about + "\">" + data._about + "</a>";
+};
+  </script>
+
+
+<!-- D3 Style Setup -->
+<meta charset="utf-8">
+<style>
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.node {
+  font: 10px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+</style>
+
+<!-- Progress Bar Style Setup -->
+<style media="screen" type="text/css">
+
+#progressbar
+{
+  position:relative;
+  width:330px;
+  padding:0 0 0 0;
+  background-image:url("images1/pggray.png");
+  height:14px;
+  border:1px solid #CCC;
+  -moz-border-radius:2px;
+  border-radius:2px;
+}
+#indicator
+{
+  position:absolute;
+  left:0;
+  top:0;
+  width:0px;
+  background-image:url("images1/pggreen.png");
+  height:14px;
+  margin:0 0 0 0;
+}
+
+</style>
+
+<script type="text/javascript">
+
+var visualization = function(visualdata){ 
+    
+var width = 1200,
+height = 600; //8000 for paracetamol
+
+var cluster = d3.layout.cluster()
+    .size([height, width - 400]);
+
+var svg = d3.select("#d3").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .append("g")
+    .attr("transform", "translate(40,0)");
+
+  var nodes = cluster.nodes(visualdata),
+      links = cluster.links(nodes);
+
+  var link = svg.selectAll(".link")
+      .data(links)
+      .enter().append("path")
+      .attr("class", "link")
+      .attr("d", function(d) {
+        return "M" + d.source.y + "," + d.source.x
+            + "C" + d.source.y + "," + d.source.x
+            + " " + d.source.y + "," + d.target.x
+            + " " + d.target.y + "," + d.target.x;
+      });
+
+  var node = svg.selectAll(".node")
+      .data(nodes)
+      .enter().append("g")
+      .attr("class", "node")
+      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+
+  node.append("circle")
+      .attr("r", 3);
+
+  node.append("text")
+      .attr("dx", function(d) { return d.children ? 20 : 8; })
+      .attr("dy", function(d) { return d.children ? 10 : 4; })
+      .style("text-anchor", function(d) { return d.children ? "end" : "start"; })
+      .text(function(d) { return d.name; });
+
+d3.select(self.frameElement).style("height", height + "px");
+};
+
+//Progress Bar JS function
+var itv = 0;  // id for setinterval
+function prog()
+{
+  positive_distracker = math.abs(distracker);
+  var progressnum = document.getElementById("progressnum");
+  var indicator = document.getElementById("indicator");
+  indicator.style.width= (positive_distracker*30) + "px";
+  if ((calltracker - positive_distracker) != 0) {
+  progressnum.innerHTML = (calltracker - positive_distracker) + " callback responses left to load." + "<br>" + diseasearraycounter + " diseases retrieved.";
+  } else { progressnum.innerHTML = diseasearraycounter + " diseases retrieved." + "<br>" + "Loading complete."; }
+}
+
+</script>
+</head>
+
+<body>
+
+    <!-- HTML Containers -->
+  <h3>Output</h3>
+  <p id="progressnum"></p>
+  <div id="progressbar">
+  <div id="indicator"></div>
+  </div>
+  <br>
+  <br>
+  <div id="d3"></div>
+  <h3>Target Search Results</h3>
+  <div id="table"></div>
+  <h3>Compound Details</h3>
+  <div id="details"></div>
+  <h3>Our JSON creation</h3>
+  <div id="jsonXX">Loading...</div>
+  <h3>DiseaseByTarget reply</h3>
+  <div id="disease">Loading...</div>
+  <h3>JSON reply</h3>
+  <div id="json">Loading...</div>
+
+  <script type="text/javascript">
+
+      //initialize variables
+      link = [];
+      linkcounter = 0;
+      uniproturls = [];
+      uniprotcounter = 0;
+      temporary = null;
+      SpecialTarget = null;
+      newTarget = null;
+      diseasearray = [];
+      diseasearraycounter = 0;
+      targetnumber = 0;
+      diseasenumber = 0;
+      distracker = 0;
+      calltracker = 0;
+
+      //creating the JSON Object with the first entry being "L-Carnitine"
+      var jsonObj = { name: "L-Carnitine", };
+      jsonObj.children = [];
+
+//variable searcher is a CompoundSearch linked to the Openphact API with the login credentials
+var searcher = new CompoundSearch("https://beta.openphacts.org/1.5", "91f5d4d0", "1af5086da757e57c553bfa1351708d5f");
+//variable disease is a CompoundSearch linked to the Openphact API with the login credentials
+var disease = new DiseaseSearch("https://beta.openphacts.org/1.5", "91f5d4d0", "1af5086da757e57c553bfa1351708d5f");
+
+
+var callback = function(success, status, response){ //FIRST CALLBACK FUNCTION
+    if (success || status == 200) {
+        itv = setInterval(prog, 110); //call the prog function every 110ms
+
+        //print stringified & preformatted JSON reply to screen
+        document.getElementById("json").innerHTML = "<pre>" + JSON.stringify(response, null, '  ') + "</pre>"; //preformatted text
+        html = "<table>";
+
+for (var i=0; i<response.items.length; i++) { //for-loop running through the items of the JSON reply
+     
+    if (response.items[i].publishedValue > 0){ //only if they have a publishedValue
+        
+    if (response.items[i].hasAssay.hasTarget.hasTargetComponent != null && response.items[i].hasAssay.hasTarget.hasTargetComponent.exactMatch != null) { //this has proven to be neccessary as some item elements do not contain a .hasTargetComponent element
+        
+        //if (response.items[i].hasAssay.hasTarget.targetOrganismName == "Homo sapiens"){
+        //only retrieve human targets! (inactive right now!)
+        if (newTarget != response.items[i].hasAssay.hasTarget.hasTargetComponent.exactMatch.prefLabel_en){ 
+        //check for double occurence of the target
+            html += "<tr>"; //spacing
+            html += "<td>";
+
+            //dataJSON is the path without the .prefLabel_en at the end because it is used to retrieve the link
+            //which is given by the extension ._about
+            dataJSON = JSON.stringify(response.items[i].hasAssay.hasTarget.hasTargetComponent.exactMatch);
+
+            //filling the array with the RDF CHEMBL URI
+            link[linkcounter] = response.items[i].hasAssay.hasTarget.hasTargetComponent._about;
+
+            //retrieving the target name and linking it onClick to the showDetails function in the HTML head
+            html += "Name: <span onClick=\"showDetails('" + escape(dataJSON) + "\')\">" +                      response.items[i].hasAssay.hasTarget.hasTargetComponent.exactMatch.prefLabel_en + "</span>";
+            publishedValue = response.items[i].publishedValue; //retrieve published value
+            //save the current target name
+            newTarget = response.items[i].hasAssay.hasTarget.hasTargetComponent.exactMatch.prefLabel_en;
+            //fill the jsonObj with targetname, CHEMBLuri and publishedValue
+            jsonObj.children[targetnumber] = {name: newTarget, CHEMBLuri: link[linkcounter], PValue: publishedValue};
+            targetnumber++; //increment targetnumber by 1
+            document.getElementById("jsonXX").innerHTML = "<pre>" + JSON.stringify(jsonObj, null, '  ') + "</pre>";
+
+            html += "</td>";
+            html += "</tr>"; //spacing
+
+            //calling the diseaseSearch function here for each individual target!
+            calltracker++; //incrementing for each callback call
+            //console.log(calltracker);
+            disease.diseasesByTarget(link[linkcounter],null, null,null,null, callback_disease);
+            linkcounter++;
+        }
+      } else { //if it is a cell line it has no .hasTargetComponent but it still has a name (title)
+          
+          if (response.items[i].hasAssay.hasTarget.title != SpecialTarget) {
+              if (response.items[i].hasAssay.hasTarget.title != "Unchecked" && response.items[i].hasAssay.hasTarget.title != "Homo sapiens" && response.items[i].hasAssay.hasTarget.title != "Hepatotoxicity"){ //filtering out the elements which are not cell lines!
+                  
+            html += "<tr>"; //spacing
+            html += "<td>";
+
+            //dataJSON is the path without the .prefLabel_en at the end because it is used to retrieve the link
+            //which is given by the extension ._about
+            dataJSON = JSON.stringify(response.items[i].hasAssay.hasTarget);
+            
+            type = response.items[i].hasAssay.hasTarget.type;
+            type2 = type.replace("http://rdf.ebi.ac.uk/terms/chembl#", "")
+            //filling the array with the RDF CHEMBL URI
+            link[linkcounter] = " " + response.items[i].hasAssay.hasTarget._about;
+
+            //retrieving the target name and linking it onClick to the showDetails function in the HTML head
+            html += "Name: <span onClick=\"showDetails('" + escape(dataJSON) + "\')\">" +                      response.items[i].hasAssay.hasTarget.title + "</span>";
+            publishedValue = response.items[i].publishedValue;
+            //here we save the current target name
+            SpecialTarget = response.items[i].hasAssay.hasTarget.title;
+            Species = " (" +response.items[i].hasAssay.hasTarget.targetOrganismName + ")";
+            //now fill the jsonObj with targetname and correspondingCHEMBLuri
+            jsonObj.children[targetnumber] = {name: SpecialTarget+Species+type2 , CHEMBLuri: link[linkcounter], PValue: publishedValue};
+            //increment targetnumber by 1
+            targetnumber++;
+            document.getElementById("jsonXX").innerHTML = "<pre>" + JSON.stringify(jsonObj, null, '  ') + "</pre>";
+            html += "</td>";
+            html += "</tr>"; //spacing
+            calltracker++; //incrementing for each callback call
+            //calling the diseaseSearch function here for each individual target!
+            disease.diseasesByTarget(link[linkcounter],null, null,null,null, callback_disease);
+            linkcounter++;
+      } } }
+    } }
+  html += "</table>"; //end the HTML table after the loop
+  document.getElementById("table").innerHTML = html; //insert the created table below "Target Search Results"
+    }
+}; //end of the first callback function
+
+//SECOND CALLBACK FUNCTION (DiseaseByTarget)
+var callback_disease = function(success, status, response){
+    if (success || status == 200) {
+    //print stringified JSON reply
+    document.getElementById("disease").innerHTML = "<pre>" + JSON.stringify(response, null, '  ') + "</pre>";
+
+        for (p=0;p<response.items.length;p++) { //for loop running through all items
+            if (response.items[p] != null) { //if items exists
+                diseasearray[diseasearraycounter] = response.items[p].name; //retrieve disease name
+
+        //manipulating the CHEMBL link
+        diseasecheck = response.isPartOf._about;
+        manipulatedRDF = unescape(diseasecheck);
+        manipulatedRDF2 = manipulatedRDF.replace("https://beta.openphacts.org/1.5/disease/byTarget?_format=json&app_key=1af5086da757e57c553bfa1351708d5f&app_id=91f5d4d0&uri=", "");
+        manipulatedRDF3 = manipulatedRDF2.replace("&app_id=e1a0c14a&app_key=1ed934544c1b76b5a939462023d325af","")
+
+        for (v=0;v<jsonObj.children.length;v++) { //for loop running through the jsonObj in order to find the corresponding target
+            if(manipulatedRDF3 == jsonObj.children[v].CHEMBLuri) { //if CHEMBLuris match
+                if (jsonObj.children[v].children == null) {jsonObj.children[v].children = []}; //if not initialized yet then do it now!
+            jsonObj.children[v].children.push({ name: diseasearray[diseasearraycounter]}); //add the disease to the jsonObj
+            }
+        }
+            diseasearraycounter++;
+            }
+        //print the stringified jsonObj
+        document.getElementById("jsonXX").innerHTML = "<pre>" + JSON.stringify(jsonObj, null, '  ') + "</pre>";
+        }
+        
+        distracker--; //decrementing the tracker variable for each callback_disease call
+        sum = distracker+calltracker;
+        
+//D3 VISUALIZATION (if the last diseaseSearch yields a 200 response)
+if (sum == 0) {
+
+    for (y=0;y<jsonObj.children.length;y++) {
+        if(jsonObj.children[y].children == null) { //for loop running through the jsonObj in order to find the empty spots (no disease data)
+            jsonObj.children[y].children = []; //initialize it now!
+            jsonObj.children[y].children.push({ name: "No data"}); //add a children.children indicating the absence of disease data
+            }
+        }
+document.getElementById("jsonXX").innerHTML = "<pre>" + JSON.stringify(jsonObj, null, '  ') + "</pre>";
+visualization(jsonObj); //calling the outsourced visualization function
+}
+    } else { //if the response is a 400 or 404
+
+      distracker--; //decrement the tracker variable
+      sum = distracker+calltracker;
+      //D3 VISUALIZATION (in case the last diseaseSearch yields a 404 or 400 response)
+      if (sum == 0) {
+
+          for (y=0;y<jsonObj.children.length;y++) {
+            if(jsonObj.children[y].children == null) { //for loop running through the jsonObj in order to find the empty spots (no disease data)
+                jsonObj.children[y].children = []; //initialize it now!
+                jsonObj.children[y].children.push({ name: "No data"}); //add a children.children indicating the absence of disease data
+            }
+        }
+          document.getElementById("jsonXX").innerHTML = "<pre>" + JSON.stringify(jsonObj, null, '  ') + "</pre>";
+          visualization(jsonObj); //calling the outsourced visualization function
+      }
+    }
+}
+
+searcher.compoundPharmacology(
+  params["uri"],
+  null, null, null, null, null, null, null, null,
+  null, null, null, null, null, null, null, null,
+  1, "all", null, null, callback
+);
+  </script>
+</body>
+</html>

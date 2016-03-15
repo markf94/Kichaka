@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<juiceboxgallery 
+
+	galleryTitle="Gallery3"
+
+>
+  <image imageURL="images/12.jpg"
+	thumbURL="thumbs/12.jpg"
+	linkURL="images/12.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/momo/Dropbox/Mark Magazine Sharing/WE/12.JPG">
+    <title><![CDATA[12]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/13.jpg"
+	thumbURL="thumbs/13.jpg"
+	linkURL="images/13.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/momo/Dropbox/Mark Magazine Sharing/WE/13.JPG">
+    <title><![CDATA[13]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/14.jpg"
+	thumbURL="thumbs/14.jpg"
+	linkURL="images/14.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/momo/Dropbox/Mark Magazine Sharing/WE/14.JPG">
+    <title><![CDATA[14]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+  <image imageURL="images/15.jpg"
+	thumbURL="thumbs/15.jpg"
+	linkURL="images/15.jpg"
+	linkTarget="_blank"
+	sourcePath="/Users/momo/Dropbox/Mark Magazine Sharing/WE/15.jpg">
+    <title><![CDATA[15]]></title>
+    <caption><![CDATA[]]></caption>
+  </image>
+</juiceboxgallery>
