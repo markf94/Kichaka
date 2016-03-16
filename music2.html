@@ -245,6 +245,27 @@ img, a { border: 0; }
 
   }());
 </script>
+
+                                        <br>
+                                        <br>
+                                        <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/248524015&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+                                        <script type="text/javascript">
+                                            (function(){
+                                                var widgetIframe = document.getElementById('sc-widget'),
+                                                        widget       = SC.Widget(widgetIframe),
+                                                        newSoundUrl = 'http://api.soundcloud.com/tracks/13692671';
+
+                                                widget.bind(SC.Widget.Events.READY, function() {
+                                                    // load new widget
+                                                    widget.bind(SC.Widget.Events.FINISH, function() {
+                                                        widget.load(newSoundUrl, {
+                                                            show_artwork: false
+                                                        });
+                                                    });
+                                                });
+
+                                            }());
+                                        </script>
                                         <br>
                                         <br>
                                         <!-- #2 -->
